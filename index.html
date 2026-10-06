@@ -1,555 +1,1465 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>BIGHIT MUSIC | AUDITION — Unofficial Demo</title>
+  <title>BIGHIT MUSIC AUDITION — Unofficial Demo</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #080808;
-    color: #fff;
-    line-height: 1.6;
-}
-
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(8,8,8,.95);
-    border-bottom: 1px solid #222;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 2px;
-}
-
-nav a {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: #fff;
-}
-
-.hero {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    padding: 80px 8%;
-    background:
-        radial-gradient(circle at 80% 30%, #442080 0, transparent 35%),
-        radial-gradient(circle at 20% 80%, #15154d 0, transparent 35%),
-        #080808;
-}
-
-.hero-content {
-    max-width: 800px;
-}
-
-.badge {
-    display: inline-block;
-    border: 1px solid #7448ff;
-    color: #b99cff;
-    padding: 8px 14px;
-    border-radius: 30px;
-    font-size: 12px;
-    margin-bottom: 25px;
-}
-
-h1 {
-    font-size: clamp(48px, 8vw, 100px);
-    line-height: .95;
-    margin-bottom: 25px;
-}
-
-.hero p {
-    color: #bbb;
-    max-width: 600px;
-    font-size: 18px;
-    margin-bottom: 35px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 15px 28px;
-    background: #fff;
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: .2s;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    background: #b99cff;
-}
-
-section {
-    padding: 90px 8%;
-}
-
-.section-title {
-    font-size: 42px;
-    margin-bottom: 15px;
-}
-
-.section-subtitle {
-    color: #999;
-    margin-bottom: 40px;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.card {
-    background: #111;
-    border: 1px solid #252525;
-    padding: 35px;
-    border-radius: 10px;
-    transition: .25s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #7448ff;
-}
-
-.card h3 {
-    font-size: 24px;
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #999;
-}
-
-.requirements {
-    background: #0e0e0e;
-}
-
-.requirement-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
-.requirement {
-    padding: 20px;
-    background: #151515;
-    border-left: 3px solid #7448ff;
-}
-
-.application {
-    background:
-        linear-gradient(rgba(8,8,8,.94), rgba(8,8,8,.98));
-}
-
-form {
-    max-width: 850px;
-    background: #111;
-    border: 1px solid #292929;
-    padding: 35px;
-    border-radius: 10px;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.field {
-    margin-bottom: 20px;
-}
-
-.field.full {
-    grid-column: 1 / -1;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #ccc;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 14px;
-    background: #080808;
-    border: 1px solid #333;
-    color: #fff;
-    border-radius: 5px;
-    outline: none;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #7448ff;
-}
-
-textarea {
-    min-height: 130px;
-    resize: vertical;
-}
-
-.checkbox {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    margin: 15px 0 25px;
-    color: #999;
-    font-size: 13px;
-}
-
-.checkbox input {
-    width: auto;
-    margin-top: 5px;
-}
-
-button {
-    border: 0;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.faq {
-    max-width: 850px;
-}
-
-details {
-    background: #111;
-    border: 1px solid #252525;
-    padding: 20px;
-    margin-bottom: 12px;
-    border-radius: 5px;
-}
-
-summary {
-    cursor: pointer;
-    font-weight: bold;
-}
-
-details p {
-    color: #999;
-    padding-top: 15px;
-}
-
-footer {
-    padding: 50px 8%;
-    border-top: 1px solid #222;
-    color: #777;
-    text-align: center;
-}
-
-.disclaimer {
-    margin-top: 15px;
-    color: #b99cff;
-    font-size: 12px;
-}
-
-@media (max-width: 750px) {
-    nav {
-        flex-direction: column;
-        gap: 15px;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    nav a {
-        margin: 0 8px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .cards,
-    .requirement-list,
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 82px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 34px;
+    }
+
+    .menu-btn {
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: #111;
+      transition: 0.3s;
+    }
+
+    .menu-btn.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-btn.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      font-size: 21px;
+      white-space: nowrap;
+    }
+
+    .logo small {
+      display: block;
+      margin-top: 5px;
+      font-size: 8px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .language {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       MENU
+    ========================= */
+
+    .side-menu {
+      position: fixed;
+      top: 82px;
+      left: 0;
+      width: 100%;
+      min-height: calc(100vh - 82px);
+      background: #fff;
+      z-index: 999;
+      transform: translateX(-100%);
+      transition: transform 0.45s ease;
+      padding: 70px 8vw;
+      display: flex;
+      align-items: center;
+    }
+
+    .side-menu.open {
+      transform: translateX(0);
+    }
+
+    .side-menu nav {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .side-menu a {
+      font-size: clamp(34px, 6vw, 70px);
+      font-weight: 800;
+      letter-spacing: -3px;
+      transition: 0.25s;
+    }
+
+    .side-menu a:hover {
+      color: #777;
+      padding-left: 15px;
+    }
+
+    .menu-note {
+      position: absolute;
+      bottom: 40px;
+      left: 8vw;
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* =========================
+       DEMO LABEL
+    ========================= */
+
+    .demo-label {
+      position: fixed;
+      top: 96px;
+      right: 20px;
+      z-index: 800;
+      background: #111;
+      color: #fff;
+      padding: 9px 13px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      border-radius: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 82px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          180deg,
+          #7fc9f5 0%,
+          #bde8ff 45%,
+          #eefaff 100%
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sun {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      filter: blur(35px);
+      top: 12%;
+      right: 12%;
+    }
+
+    .cloud {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: 100px;
+      filter: blur(2px);
+      opacity: 0.8;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: "";
+      position: absolute;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .cloud-1 {
+      width: 300px;
+      height: 75px;
+      top: 22%;
+      left: -50px;
+    }
+
+    .cloud-1::before {
+      width: 120px;
+      height: 120px;
+      left: 45px;
+      bottom: 10px;
+    }
+
+    .cloud-1::after {
+      width: 90px;
+      height: 90px;
+      left: 155px;
+      bottom: 12px;
+    }
+
+    .cloud-2 {
+      width: 390px;
+      height: 95px;
+      bottom: 24%;
+      right: -100px;
+    }
+
+    .cloud-2::before {
+      width: 150px;
+      height: 150px;
+      left: 60px;
+      bottom: 10px;
+    }
+
+    .cloud-2::after {
+      width: 115px;
+      height: 115px;
+      left: 205px;
+      bottom: 15px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      width: min(1200px, 90%);
+      text-align: center;
+    }
+
+    .hero-kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: clamp(54px, 10vw, 145px);
+      line-height: 0.82;
+      letter-spacing: -8px;
+      font-weight: 950;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow:
+        0 4px 0 rgba(255,255,255,0.35),
+        0 14px 35px rgba(0, 80, 130, 0.15);
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-subtitle {
+      margin: 42px auto 0;
+      max-width: 580px;
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 500;
+      color: #12354a;
+    }
+
+    .hero-button {
+      display: inline-flex;
+      margin-top: 30px;
+      padding: 17px 35px;
+      background: #111;
+      color: #fff;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-4px);
+      background: #fff;
+      color: #111;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #31576b;
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      padding: 130px 7vw;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .section-number {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #999;
+      margin-bottom: 25px;
+    }
+
+    .intro h2 {
+      font-size: clamp(42px, 6vw, 85px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+    }
+
+    .intro p {
+      color: #555;
+      line-height: 1.9;
+      font-size: 16px;
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .categories {
+      background: #f4f4f2;
+      padding: 130px 7vw;
+    }
+
+    .categories-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 60px;
+      gap: 30px;
+    }
+
+    .categories h2 {
+      font-size: clamp(45px, 7vw, 95px);
+      letter-spacing: -5px;
+      line-height: 0.9;
+    }
+
+    .categories-header p {
+      max-width: 360px;
+      line-height: 1.7;
+      color: #666;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .category {
+      min-height: 310px;
+      background: #fff;
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.3s;
+    }
+
+    .category:hover {
+      background: #111;
+      color: #fff;
+      transform: translateY(-8px);
+    }
+
+    .category-number {
+      font-size: 11px;
+      font-weight: 800;
+      color: #999;
+    }
+
+    .category h3 {
+      font-size: 29px;
+      letter-spacing: -1px;
+    }
+
+    .category p {
+      color: #777;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .category:hover p {
+      color: #bbb;
+    }
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process {
+      padding: 140px 7vw;
+      background: #111;
+      color: #fff;
+    }
+
+    .process h2 {
+      font-size: clamp(45px, 7vw, 100px);
+      letter-spacing: -6px;
+      line-height: 0.9;
+      margin-bottom: 80px;
+    }
+
+    .process-list {
+      border-top: 1px solid #444;
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 100px 1fr 1fr;
+      gap: 30px;
+      padding: 38px 0;
+      border-bottom: 1px solid #333;
+      align-items: center;
+    }
+
+    .process-item strong {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #aaa;
+    }
+
+    .process-item h3 {
+      font-size: 27px;
+    }
+
+    .process-item p {
+      color: #aaa;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* =========================
+       REQUIREMENTS
+    ========================= */
+
+    .requirements {
+      padding: 140px 7vw;
+      background: #fff;
+    }
+
+    .requirements h2 {
+      font-size: clamp(45px, 7vw, 95px);
+      letter-spacing: -5px;
+      margin-bottom: 70px;
+    }
+
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .requirement {
+      border-top: 3px solid #111;
+      padding-top: 25px;
+    }
+
+    .requirement h3 {
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .requirement p {
+      color: #666;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    /* =========================
+       APPLICATION
+    ========================= */
+
+    .application {
+      background: #e9e9e7;
+      padding: 140px 7vw;
+    }
+
+    .application-inner {
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .application h2 {
+      font-size: clamp(45px, 7vw, 90px);
+      letter-spacing: -5px;
+      line-height: 0.9;
+      margin-bottom: 25px;
+    }
+
+    .application-intro {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 55px;
+      max-width: 600px;
+    }
+
+    form {
+      background: #fff;
+      padding: 45px;
+    }
+
     .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #bbb;
+      padding: 15px 3px;
+      outline: none;
+      background: transparent;
+      color: #111;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-bottom-color: #111;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .demo-warning {
+      margin: 30px 0;
+      padding: 18px;
+      background: #f1f1f1;
+      font-size: 12px;
+      line-height: 1.7;
+      color: #666;
+    }
+
+    .submit-btn {
+      border: none;
+      background: #111;
+      color: #fff;
+      padding: 18px 35px;
+      cursor: pointer;
+      font-weight: 800;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #444;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq {
+      padding: 140px 7vw;
+      background: #fff;
+    }
+
+    .faq h2 {
+      font-size: clamp(45px, 7vw, 90px);
+      letter-spacing: -5px;
+      margin-bottom: 60px;
+    }
+
+    .faq-item {
+      border-top: 1px solid #ccc;
+    }
+
+    .faq-question {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 25px 0;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question span {
+      font-size: 25px;
+      transition: 0.3s;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 50px 25px 0;
+      color: #666;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-question span {
+      transform: rotate(45deg);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 70px 7vw 35px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 60px;
+    }
+
+    .footer-logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .footer-logo span {
+      display: block;
+      font-size: 9px;
+      color: #777;
+      letter-spacing: 2px;
+      margin-top: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 25px;
+      color: #666;
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       COOKIE / DEMO NOTICE
+    ========================= */
+
+    .notice {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      max-width: 680px;
+      background: rgba(17, 17, 17, 0.96);
+      color: #fff;
+      padding: 22px;
+      z-index: 2000;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .notice p {
+      font-size: 11px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .notice strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .notice button {
+      flex-shrink: 0;
+      background: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .intro {
         grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .requirements-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-item {
+        grid-template-columns: 60px 1fr;
+      }
+
+      .process-item p {
+        grid-column: 2;
+      }
     }
 
-    h1 {
-        font-size: 55px;
-    }
+    @media (max-width: 650px) {
+      header {
+        padding: 0 17px;
+        height: 70px;
+      }
 
-    section {
-        padding: 65px 6%;
+      .side-menu {
+        top: 70px;
+        min-height: calc(100vh - 70px);
+      }
+
+      .demo-label {
+        top: 84px;
+        right: 10px;
+      }
+
+      .logo {
+        font-size: 15px;
+      }
+
+      .logo small {
+        font-size: 6px;
+      }
+
+      .hero {
+        padding-top: 70px;
+        min-height: 100svh;
+      }
+
+      .hero-title {
+        letter-spacing: -4px;
+      }
+
+      .hero-subtitle {
+        font-size: 13px;
+      }
+
+      .intro,
+      .categories,
+      .process,
+      .requirements,
+      .application,
+      .faq {
+        padding: 90px 6vw;
+      }
+
+      .categories-header {
+        display: block;
+      }
+
+      .categories-header p {
+        margin-top: 25px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category {
+        min-height: 240px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      form {
+        padding: 25px;
+      }
+
+      .footer-top {
+        display: block;
+      }
+
+      .footer-links {
+        margin-top: 30px;
+      }
+
+      .notice {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        display: block;
+      }
+
+      .notice button {
+        margin-top: 15px;
+      }
     }
-}
-</style>
+  </style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">BIGHIT MUSIC</div>
+  <!-- HEADER -->
+  <header>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-    <div>
-        <a href="#home">Home</a>
-        <a href="#audition">Audition</a>
-        <a href="#requirements">Requirements</a>
-        <a href="#apply">Apply</a>
-        <a href="#faq">FAQ</a>
+    <a href="#home" class="logo">
+      BIGHIT MUSIC
+      <small>AUDITION</small>
+    </a>
+
+    <div class="language">KOR ▾</div>
+  </header>
+
+  <!-- MENU -->
+  <div class="side-menu" id="sideMenu">
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#audition">AUDITION</a>
+      <a href="#requirements">REQUIREMENTS</a>
+      <a href="#application">APPLY</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="menu-note">
+      UNOFFICIAL WEBSITE DEMO
     </div>
-</nav>
+  </div>
 
-<section class="hero" id="home">
+  <div class="demo-label">
+    UNOFFICIAL DEMO
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="sun"></div>
+
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+
     <div class="hero-content">
 
-        <span class="badge">UNOFFICIAL AUDITION WEBSITE DEMO</span>
+      <div class="hero-kicker">
+        2026 GLOBAL AUDITION
+      </div>
 
-        <h1>SHOW<br>YOUR<br>TALENT.</h1>
+      <h1 class="hero-title">
+        <span>SHOW</span>
+        <span>YOUR</span>
+        <span>TALENT.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        A fan-made audition website concept inspired by modern
+        global audition campaigns. Discover your path, prepare
+        your talent and take your first step.
+      </p>
+
+      <a href="#application" class="hero-button">
+        START YOUR JOURNEY →
+      </a>
+
+    </div>
+
+    <div class="scroll">
+      SCROLL ↓
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro" id="audition">
+
+    <div>
+      <div class="section-number">01 — AUDITION</div>
+
+      <h2>
+        YOUR<br>
+        MOMENT<br>
+        STARTS<br>
+        HERE.
+      </h2>
+    </div>
+
+    <div>
+      <p>
+        Talent has no borders. Whether your strength is music,
+        dance, rap or performance, this demo is designed to
+        give you a simple place to explore the audition process.
+      </p>
+
+      <br>
+
+      <p>
+        Prepare your strongest material, understand the basic
+        requirements and submit a practice application through
+        this unofficial demonstration website.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories">
+
+    <div class="categories-header">
+
+      <div>
+        <div class="section-number">02 — CATEGORIES</div>
+
+        <h2>
+          FIND<br>
+          YOUR<br>
+          STAGE.
+        </h2>
+      </div>
+
+      <p>
+        Choose the area that best represents your talent.
+        Your audition should focus on what you do best.
+      </p>
+
+    </div>
+
+    <div class="category-grid">
+
+      <div class="category">
+        <div class="category-number">01</div>
+
+        <div>
+          <h3>VOCAL</h3>
+          <p>
+            Show your tone, control, emotion and individual
+            musical identity.
+          </p>
+        </div>
+      </div>
+
+      <div class="category">
+        <div class="category-number">02</div>
+
+        <div>
+          <h3>RAP</h3>
+          <p>
+            Demonstrate rhythm, delivery, flow and your own
+            unique style.
+          </p>
+        </div>
+      </div>
+
+      <div class="category">
+        <div class="category-number">03</div>
+
+        <div>
+          <h3>DANCE</h3>
+          <p>
+            Let your movement, musicality and performance
+            presence speak for you.
+          </p>
+        </div>
+      </div>
+
+      <div class="category">
+        <div class="category-number">04</div>
+
+        <div>
+          <h3>OTHERS</h3>
+          <p>
+            Have another performance talent? Use this category
+            to introduce your speciality.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+
+    <div class="section-number">03 — PROCESS</div>
+
+    <h2>
+      THREE<br>
+      SIMPLE<br>
+      STEPS.
+    </h2>
+
+    <div class="process-list">
+
+      <div class="process-item">
+        <strong>01</strong>
+
+        <h3>PREPARE</h3>
 
         <p>
-            A demonstration audition platform for aspiring artists
-            interested in vocal, rap, dance and performance.
+          Select your strongest performance and make sure
+          your recording clearly represents you.
         </p>
+      </div>
 
-        <a class="btn" href="#apply">APPLY NOW</a>
+      <div class="process-item">
+        <strong>02</strong>
 
-    </div>
-</section>
+        <h3>APPLY</h3>
 
-<section id="audition">
+        <p>
+          Complete the demo application form and provide the
+          requested audition information.
+        </p>
+      </div>
 
-    <h2 class="section-title">AUDITION CATEGORIES</h2>
+      <div class="process-item">
+        <strong>03</strong>
 
-    <p class="section-subtitle">
-        Choose the area that best represents your talent.
-    </p>
+        <h3>PERFORM</h3>
 
-    <div class="cards">
-
-        <div class="card">
-            <h3>VOCAL</h3>
-            <p>
-                Showcase your voice, tone, range and musical expression.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>RAP</h3>
-            <p>
-                Demonstrate your flow, rhythm, delivery and individuality.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>DANCE</h3>
-            <p>
-                Show your movement, musicality, technique and stage presence.
-            </p>
-        </div>
+        <p>
+          Be confident, stay authentic and show what makes
+          your performance different.
+        </p>
+      </div>
 
     </div>
 
-</section>
+  </section>
 
-<section class="requirements" id="requirements">
+  <!-- REQUIREMENTS -->
+  <section class="requirements" id="requirements">
 
-    <h2 class="section-title">AUDITION REQUIREMENTS</h2>
+    <div class="section-number">04 — REQUIREMENTS</div>
 
-    <p class="section-subtitle">
-        Prepare the following before submitting your application.
-    </p>
+    <h2>
+      BEFORE<br>
+      YOU APPLY.
+    </h2>
 
-    <div class="requirement-list">
+    <div class="requirements-grid">
 
-        <div class="requirement">
-            Full name and date of birth
-        </div>
+      <div class="requirement">
+        <h3>01 — TALENT</h3>
 
-        <div class="requirement">
-            Valid email address
-        </div>
+        <p>
+          Prepare one performance that best demonstrates
+          your ability. Keep it clear and focused.
+        </p>
+      </div>
 
-        <div class="requirement">
-            Country of residence
-        </div>
+      <div class="requirement">
+        <h3>02 — RECORDING</h3>
 
-        <div class="requirement">
-            Audition category
-        </div>
+        <p>
+          Use a clear recording with good lighting and sound.
+          Avoid excessive filters or effects.
+        </p>
+      </div>
 
-        <div class="requirement">
-            Short personal introduction
-        </div>
+      <div class="requirement">
+        <h3>03 — CONFIDENCE</h3>
 
-        <div class="requirement">
-            Audition video or portfolio
-        </div>
+        <p>
+          Your personality matters. Focus on being natural,
+          confident and authentic.
+        </p>
+      </div>
 
     </div>
 
-</section>
+  </section>
 
-<section class="application" id="apply">
+  <!-- APPLICATION -->
+  <section class="application" id="application">
 
-    <h2 class="section-title">AUDITION APPLICATION</h2>
+    <div class="application-inner">
 
-    <p class="section-subtitle">
-        Complete the form below to create a demo application.
-    </p>
+      <div class="section-number">05 — APPLICATION</div>
 
-    <form onsubmit="submitApplication(event)">
+      <h2>
+        TAKE<br>
+        YOUR<br>
+        SHOT.
+      </h2>
+
+      <p class="application-intro">
+        This is a demonstration form only. It does not submit
+        an application to BIGHIT MUSIC and does not store your
+        personal information.
+      </p>
+
+      <form id="applicationForm">
 
         <div class="form-grid">
 
-            <div class="field">
-                <label>Full Name</label>
-                <input type="text" required placeholder="Your full name">
-            </div>
+          <div class="field">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Your name"
+              required
+            >
+          </div>
 
-            <div class="field">
-                <label>Date of Birth</label>
-                <input type="date" required>
-            </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Your email"
+              required
+            >
+          </div>
 
-            <div class="field">
-                <label>Email</label>
-                <input type="email" required placeholder="you@example.com">
-            </div>
+          <div class="field">
+            <label for="category">Audition Category</label>
 
-            <div class="field">
-                <label>Phone</label>
-                <input type="tel" placeholder="+234...">
-            </div>
+            <select id="category" required>
+              <option value="">Select category</option>
+              <option>Vocal</option>
+              <option>Rap</option>
+              <option>Dance</option>
+              <option>Others</option>
+            </select>
+          </div>
 
-            <div class="field">
-                <label>Country</label>
-                <input type="text" required placeholder="Country">
-            </div>
+          <div class="field">
+            <label for="country">Country</label>
 
-            <div class="field">
-                <label>Audition Category</label>
+            <input
+              type="text"
+              id="country"
+              placeholder="Your country"
+              required
+            >
+          </div>
 
-                <select required>
-                    <option value="">Select category</option>
-                    <option>Vocal</option>
-                    <option>Rap</option>
-                    <option>Dance</option>
-                    <option>Acting</option>
-                    <option>Other</option>
-                </select>
-            </div>
+          <div class="field full">
+            <label for="message">Tell us about your talent</label>
 
-            <div class="field full">
-                <label>Social Media / Portfolio Link</label>
-                <input type="url" placeholder="https://...">
-            </div>
+            <textarea
+              id="message"
+              placeholder="Introduce yourself and your performance..."
+              required
+            ></textarea>
+          </div>
 
-            <div class="field full">
-                <label>Short Introduction</label>
-                <textarea
-                    required
-                    placeholder="Tell us about yourself and your talent..."
-                ></textarea>
-            </div>
+          <div class="field full">
+            <label for="file">Audition File — Demo Only</label>
 
-            <div class="field full">
-                <label>Audition Video</label>
-                <input type="file" accept="video/*">
-            </div>
+            <input
+              type="file"
+              id="file"
+              accept="audio/*,video/*"
+            >
+          </div>
 
         </div>
 
-        <div class="checkbox">
-            <input type="checkbox" required>
-            <span>
-                I understand that this is an unofficial demonstration
-                website and that this form does not currently submit
-                an application to BIGHIT MUSIC.
-            </span>
+        <div class="demo-warning">
+          <strong>DEMO NOTICE</strong><br>
+          This form is only a visual website demonstration.
+          No information or uploaded files are sent to BIGHIT MUSIC.
+          Do not enter sensitive personal information.
         </div>
 
-        <button class="btn" type="submit">
-            SUBMIT APPLICATION
+        <button class="submit-btn" type="submit">
+          SUBMIT DEMO APPLICATION →
         </button>
 
-    </form>
-
-</section>
-
-<section id="faq">
-
-    <h2 class="section-title">FAQ</h2>
-
-    <div class="faq">
-
-        <details>
-            <summary>Is this the official BIGHIT MUSIC audition website?</summary>
-            <p>
-                No. This is an unofficial website demonstration project.
-            </p>
-        </details>
-
-        <details>
-            <summary>Can I submit a real audition here?</summary>
-            <p>
-                Not yet. The current form is a demonstration interface.
-                A secure backend would need to be connected before
-                accepting real applications.
-            </p>
-        </details>
-
-        <details>
-            <summary>What can I audition for?</summary>
-            <p>
-                This demo supports vocal, rap, dance, acting and other
-                performance categories.
-            </p>
-        </details>
+      </form>
 
     </div>
 
-</section>
+  </section>
 
-<footer>
+  <!-- FAQ -->
+  <section class="faq" id="faq">
 
-    <strong>BIGHIT MUSIC — AUDITION DEMO</strong>
+    <div class="section-number">06 — FAQ</div>
 
-    <div class="disclaimer">
-        UNOFFICIAL FAN/DEMO PROJECT — NOT AFFILIATED WITH OR ENDORSED BY
-        BIGHIT MUSIC.
+    <h2>
+      QUESTIONS?
+    </h2>
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        Is this the official BIGHIT MUSIC website?
+        <span>+</span>
+      </button>
+
+      <div class="faq-answer">
+        No. This is an unofficial fan-made website demonstration
+        created for design and educational purposes.
+      </div>
+
     </div>
 
-</footer>
+    <div class="faq-item">
 
-<script>
-function submitApplication(event) {
+      <button class="faq-question">
+        Does the application actually get submitted?
+        <span>+</span>
+      </button>
 
-    event.preventDefault();
+      <div class="faq-answer">
+        No. The application form is a demo and does not send
+        information to BIGHIT MUSIC or any other organization.
+      </div>
 
-    alert(
-        "Demo application received!\\n\\n" +
-        "This website is currently a demonstration. " +
-        "No application has been sent to BIGHIT MUSIC."
-    );
+    </div>
 
-}
-</script>
+    <div class="faq-item">
+
+      <button class="faq-question">
+        Can I upload an audition video?
+        <span>+</span>
+      </button>
+
+      <div class="faq-answer">
+        The file selector is included for demonstration only.
+        The selected file remains local and is not uploaded.
+      </div>
+
+    </div>
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        How can I make this a real application system?
+        <span>+</span>
+      </button>
+
+      <div class="faq-answer">
+        A secure backend, database, authentication, file storage
+        and appropriate privacy/security controls would be required.
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        BIGHIT MUSIC
+        <span>UNOFFICIAL AUDITION WEBSITE DEMO</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">HOME</a>
+        <a href="#audition">AUDITION</a>
+        <a href="#requirements">REQUIREMENTS</a>
+        <a href="#application">APPLY</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      This website is an unofficial fan-made demonstration and
+      is not affiliated with, operated by, sponsored by, or
+      endorsed by BIGHIT MUSIC or HYBE.
+      <br><br>
+      © 2026 Unofficial Audition Demo.
+    </div>
+
+  </footer>
+
+  <!-- DEMO NOTICE -->
+  <div class="notice" id="notice">
+
+    <p>
+      <strong>UNOFFICIAL DEMO WEBSITE</strong>
+      This website is a design demonstration and is not the
+      official BIGHIT MUSIC audition website.
+    </p>
+
+    <button onclick="closeNotice()">
+      OK
+    </button>
+
+  </div>
+
+  <script>
+    /* =========================
+       MENU
+    ========================= */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const sideMenu = document.getElementById("sideMenu");
+
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+      sideMenu.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".side-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        menuBtn.classList.remove("active");
+        sideMenu.classList.remove("open");
+      });
+    });
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = button.parentElement;
+
+        document.querySelectorAll(".faq-item").forEach(other => {
+          if (other !== item) {
+            other.classList.remove("open");
+          }
+        });
+
+        item.classList.toggle("open");
+      });
+    });
+
+    /* =========================
+       DEMO APPLICATION
+    ========================= */
+
+    document
+      .getElementById("applicationForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        alert(
+          "DEMO APPLICATION RECEIVED!\n\n" +
+          "This is only a website demonstration. " +
+          "No application has been sent to BIGHIT MUSIC."
+        );
+
+        this.reset();
+      });
+
+    /* =========================
+       DEMO NOTICE
+    ========================= */
+
+    function closeNotice() {
+      document.getElementById("notice").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
