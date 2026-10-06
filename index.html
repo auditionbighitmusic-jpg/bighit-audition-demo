@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BIGHIT MUSIC | AUDITION — Demo</title>
+<title>BIGHIT MUSIC | AUDITION — Unofficial Demo</title>
 
 <style>
 * {
@@ -18,20 +18,19 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #080808;
     color: #fff;
+    line-height: 1.6;
 }
 
-/* NAVIGATION */
 nav {
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: 100%;
     z-index: 1000;
+    background: rgba(8,8,8,.95);
+    border-bottom: 1px solid #222;
+    padding: 18px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 22px 7%;
-    background: rgba(0,0,0,0.88);
-    backdrop-filter: blur(12px);
 }
 
 .logo {
@@ -40,222 +39,263 @@ nav {
     letter-spacing: 2px;
 }
 
-.logo span {
-    font-weight: 300;
-}
-
-nav ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
 nav a {
-    color: white;
+    color: #aaa;
     text-decoration: none;
+    margin-left: 25px;
     font-size: 14px;
-    transition: 0.3s;
 }
 
 nav a:hover {
-    opacity: 0.55;
+    color: #fff;
 }
 
-/* HERO */
 .hero {
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
-    padding: 120px 7% 70px;
+    padding: 80px 8%;
     background:
-        radial-gradient(circle at 75% 35%, #3b146e 0%, transparent 30%),
-        radial-gradient(circle at 20% 80%, #171717 0%, transparent 40%),
-        #050505;
+        radial-gradient(circle at 80% 30%, #442080 0, transparent 35%),
+        radial-gradient(circle at 20% 80%, #15154d 0, transparent 35%),
+        #080808;
 }
 
 .hero-content {
-    max-width: 850px;
+    max-width: 800px;
 }
 
-.small-title {
-    letter-spacing: 5px;
-    font-size: 13px;
-    color: #b9b9b9;
+.badge {
+    display: inline-block;
+    border: 1px solid #7448ff;
+    color: #b99cff;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 12px;
     margin-bottom: 25px;
 }
 
-.hero h1 {
-    font-size: clamp(55px, 9vw, 125px);
-    line-height: 0.9;
-    letter-spacing: -5px;
-    margin-bottom: 30px;
-}
-
-.hero h1 span {
-    background: linear-gradient(90deg, #fff, #a873ff);
-    -webkit-background-clip: text;
-    color: transparent;
+h1 {
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: .95;
+    margin-bottom: 25px;
 }
 
 .hero p {
-    max-width: 620px;
-    color: #bdbdbd;
+    color: #bbb;
+    max-width: 600px;
     font-size: 18px;
-    line-height: 1.7;
     margin-bottom: 35px;
 }
 
 .btn {
     display: inline-block;
-    padding: 16px 30px;
-    background: white;
-    color: black;
+    padding: 15px 28px;
+    background: #fff;
+    color: #000;
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
-    transition: 0.3s;
+    transition: .2s;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    background: #c7a3ff;
+    background: #b99cff;
 }
 
-/* SECTIONS */
 section {
-    padding: 100px 7%;
+    padding: 90px 8%;
 }
 
 .section-title {
-    font-size: 45px;
-    margin-bottom: 20px;
+    font-size: 42px;
+    margin-bottom: 15px;
 }
 
-.section-text {
-    color: #aaa;
-    max-width: 700px;
-    line-height: 1.8;
+.section-subtitle {
+    color: #999;
+    margin-bottom: 40px;
 }
 
-/* CARDS */
 .cards {
-    margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 .card {
-    padding: 35px;
-    min-height: 220px;
     background: #111;
-    border: 1px solid #222;
-    transition: 0.3s;
+    border: 1px solid #252525;
+    padding: 35px;
+    border-radius: 10px;
+    transition: .25s;
 }
 
 .card:hover {
-    transform: translateY(-7px);
-    border-color: #7542bd;
-}
-
-.card-number {
-    font-size: 13px;
-    color: #a873ff;
-    margin-bottom: 30px;
+    transform: translateY(-5px);
+    border-color: #7448ff;
 }
 
 .card h3 {
     font-size: 24px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .card p {
     color: #999;
-    line-height: 1.7;
 }
 
-/* REQUIREMENTS */
 .requirements {
-    background: #0d0d0d;
+    background: #0e0e0e;
 }
 
-.requirements ul {
-    margin-top: 35px;
-    list-style: none;
-    max-width: 700px;
+.requirement-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }
 
-.requirements li {
-    padding: 20px 0;
-    border-bottom: 1px solid #292929;
+.requirement {
+    padding: 20px;
+    background: #151515;
+    border-left: 3px solid #7448ff;
+}
+
+.application {
+    background:
+        linear-gradient(rgba(8,8,8,.94), rgba(8,8,8,.98));
+}
+
+form {
+    max-width: 850px;
+    background: #111;
+    border: 1px solid #292929;
+    padding: 35px;
+    border-radius: 10px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
     color: #ccc;
 }
 
-.requirements li::before {
-    content: "✦";
-    color: #a873ff;
-    margin-right: 15px;
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    background: #080808;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
 }
 
-/* APPLY */
-.apply {
-    text-align: center;
-    background: linear-gradient(135deg, #100b17, #080808);
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #7448ff;
 }
 
-.apply p {
-    margin: 0 auto 35px;
-    max-width: 650px;
-    color: #aaa;
-    line-height: 1.8;
+textarea {
+    min-height: 130px;
+    resize: vertical;
 }
 
-/* FOOTER */
-footer {
-    padding: 40px 7%;
-    text-align: center;
-    background: #030303;
-    color: #777;
+.checkbox {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 15px 0 25px;
+    color: #999;
     font-size: 13px;
 }
 
-.disclaimer {
-    max-width: 700px;
-    margin: 15px auto 0;
-    color: #555;
-    line-height: 1.6;
+.checkbox input {
+    width: auto;
+    margin-top: 5px;
 }
 
-/* MOBILE */
+button {
+    border: 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.faq {
+    max-width: 850px;
+}
+
+details {
+    background: #111;
+    border: 1px solid #252525;
+    padding: 20px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+details p {
+    color: #999;
+    padding-top: 15px;
+}
+
+footer {
+    padding: 50px 8%;
+    border-top: 1px solid #222;
+    color: #777;
+    text-align: center;
+}
+
+.disclaimer {
+    margin-top: 15px;
+    color: #b99cff;
+    font-size: 12px;
+}
+
 @media (max-width: 750px) {
-
     nav {
-        padding: 18px 5%;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    nav ul {
-        display: none;
+    nav a {
+        margin: 0 8px;
     }
 
-    .hero {
-        padding: 120px 6% 70px;
+    .cards,
+    .requirement-list,
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 
-    .hero h1 {
-        font-size: 65px;
-        letter-spacing: -3px;
+    h1 {
+        font-size: 55px;
     }
 
     section {
-        padding: 75px 6%;
-    }
-
-    .section-title {
-        font-size: 36px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
+        padding: 65px 6%;
     }
 }
 </style>
@@ -264,89 +304,62 @@ footer {
 <body>
 
 <nav>
-    <div class="logo">
-        BIGHIT <span>MUSIC</span>
-    </div>
+    <div class="logo">BIGHIT MUSIC</div>
 
-    <ul>
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#audition">AUDITION</a></li>
-        <li><a href="#requirements">REQUIREMENTS</a></li>
-        <li><a href="#apply">APPLY</a></li>
-    </ul>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#audition">Audition</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#apply">Apply</a>
+        <a href="#faq">FAQ</a>
+    </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
-
     <div class="hero-content">
 
-        <div class="small-title">
-            MUSIC • TALENT • POSSIBILITY
-        </div>
+        <span class="badge">UNOFFICIAL AUDITION WEBSITE DEMO</span>
 
-        <h1>
-            FIND<br>
-            YOUR <span>VOICE.</span>
-        </h1>
+        <h1>SHOW<br>YOUR<br>TALENT.</h1>
 
         <p>
-            A concept website for a music audition experience.
-            Discover your potential, express your talent and take
-            the next step toward your artistic journey.
+            A demonstration audition platform for aspiring artists
+            interested in vocal, rap, dance and performance.
         </p>
 
-        <a href="#apply" class="btn">
-            START YOUR AUDITION →
-        </a>
+        <a class="btn" href="#apply">APPLY NOW</a>
 
     </div>
-
 </section>
 
-<!-- AUDITION -->
 <section id="audition">
 
-    <div class="small-title">
-        AUDITION
-    </div>
+    <h2 class="section-title">AUDITION CATEGORIES</h2>
 
-    <h2 class="section-title">
-        Your talent deserves<br>to be heard.
-    </h2>
-
-    <p class="section-text">
-        This concept audition platform is designed for aspiring
-        artists who want to showcase their abilities in music,
-        dance and performance.
+    <p class="section-subtitle">
+        Choose the area that best represents your talent.
     </p>
 
     <div class="cards">
 
         <div class="card">
-            <div class="card-number">01</div>
             <h3>VOCAL</h3>
             <p>
-                Showcase your singing ability, tone, musicality
-                and individual style.
+                Showcase your voice, tone, range and musical expression.
             </p>
         </div>
 
         <div class="card">
-            <div class="card-number">02</div>
-            <h3>DANCE</h3>
-            <p>
-                Demonstrate your movement, rhythm, technique
-                and performance ability.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="card-number">03</div>
             <h3>RAP</h3>
             <p>
-                Show your flow, rhythm, delivery and unique
-                artistic character.
+                Demonstrate your flow, rhythm, delivery and individuality.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>DANCE</h3>
+            <p>
+                Show your movement, musicality, technique and stage presence.
             </p>
         </div>
 
@@ -354,64 +367,189 @@ footer {
 
 </section>
 
-<!-- REQUIREMENTS -->
 <section class="requirements" id="requirements">
 
-    <div class="small-title">
-        BEFORE YOU APPLY
+    <h2 class="section-title">AUDITION REQUIREMENTS</h2>
+
+    <p class="section-subtitle">
+        Prepare the following before submitting your application.
+    </p>
+
+    <div class="requirement-list">
+
+        <div class="requirement">
+            Full name and date of birth
+        </div>
+
+        <div class="requirement">
+            Valid email address
+        </div>
+
+        <div class="requirement">
+            Country of residence
+        </div>
+
+        <div class="requirement">
+            Audition category
+        </div>
+
+        <div class="requirement">
+            Short personal introduction
+        </div>
+
+        <div class="requirement">
+            Audition video or portfolio
+        </div>
+
     </div>
-
-    <h2 class="section-title">
-        Requirements
-    </h2>
-
-    <ul>
-        <li>Prepare a clear introduction about yourself.</li>
-        <li>Choose the talent category you want to showcase.</li>
-        <li>Prepare a clear vocal, dance or rap performance.</li>
-        <li>Use good lighting and clear audio/video quality.</li>
-        <li>Make sure your performance represents your own ability.</li>
-    </ul>
 
 </section>
 
-<!-- APPLY -->
-<section class="apply" id="apply">
+<section class="application" id="apply">
 
-    <div class="small-title">
-        READY?
-    </div>
+    <h2 class="section-title">AUDITION APPLICATION</h2>
 
-    <h2 class="section-title">
-        SHOW US WHAT<br>YOU CAN DO.
-    </h2>
-
-    <p>
-        This is an unofficial website demonstration created
-        for educational and design purposes. It is not affiliated
-        with or operated by BIGHIT MUSIC.
+    <p class="section-subtitle">
+        Complete the form below to create a demo application.
     </p>
 
-    <a href="#" class="btn"
-       onclick="alert('Demo only — no real audition submission is being made.'); return false;">
-        APPLY NOW →
-    </a>
+    <form onsubmit="submitApplication(event)">
+
+        <div class="form-grid">
+
+            <div class="field">
+                <label>Full Name</label>
+                <input type="text" required placeholder="Your full name">
+            </div>
+
+            <div class="field">
+                <label>Date of Birth</label>
+                <input type="date" required>
+            </div>
+
+            <div class="field">
+                <label>Email</label>
+                <input type="email" required placeholder="you@example.com">
+            </div>
+
+            <div class="field">
+                <label>Phone</label>
+                <input type="tel" placeholder="+234...">
+            </div>
+
+            <div class="field">
+                <label>Country</label>
+                <input type="text" required placeholder="Country">
+            </div>
+
+            <div class="field">
+                <label>Audition Category</label>
+
+                <select required>
+                    <option value="">Select category</option>
+                    <option>Vocal</option>
+                    <option>Rap</option>
+                    <option>Dance</option>
+                    <option>Acting</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="field full">
+                <label>Social Media / Portfolio Link</label>
+                <input type="url" placeholder="https://...">
+            </div>
+
+            <div class="field full">
+                <label>Short Introduction</label>
+                <textarea
+                    required
+                    placeholder="Tell us about yourself and your talent..."
+                ></textarea>
+            </div>
+
+            <div class="field full">
+                <label>Audition Video</label>
+                <input type="file" accept="video/*">
+            </div>
+
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" required>
+            <span>
+                I understand that this is an unofficial demonstration
+                website and that this form does not currently submit
+                an application to BIGHIT MUSIC.
+            </span>
+        </div>
+
+        <button class="btn" type="submit">
+            SUBMIT APPLICATION
+        </button>
+
+    </form>
+
+</section>
+
+<section id="faq">
+
+    <h2 class="section-title">FAQ</h2>
+
+    <div class="faq">
+
+        <details>
+            <summary>Is this the official BIGHIT MUSIC audition website?</summary>
+            <p>
+                No. This is an unofficial website demonstration project.
+            </p>
+        </details>
+
+        <details>
+            <summary>Can I submit a real audition here?</summary>
+            <p>
+                Not yet. The current form is a demonstration interface.
+                A secure backend would need to be connected before
+                accepting real applications.
+            </p>
+        </details>
+
+        <details>
+            <summary>What can I audition for?</summary>
+            <p>
+                This demo supports vocal, rap, dance, acting and other
+                performance categories.
+            </p>
+        </details>
+
+    </div>
 
 </section>
 
 <footer>
 
-    <div>
-        © 2026 Audition Website Demo
-    </div>
+    <strong>BIGHIT MUSIC — AUDITION DEMO</strong>
 
     <div class="disclaimer">
-        UNOFFICIAL DEMO — This website is a design/concept project
-        and is not affiliated with BIGHIT MUSIC, HYBE or any
-        related company.
+        UNOFFICIAL FAN/DEMO PROJECT — NOT AFFILIATED WITH OR ENDORSED BY
+        BIGHIT MUSIC.
     </div>
 
 </footer>
+
+<script>
+function submitApplication(event) {
+
+    event.preventDefault();
+
+    alert(
+        "Demo application received!\\n\\n" +
+        "This website is currently a demonstration. " +
+        "No application has been sent to BIGHIT MUSIC."
+    );
+
+}
+</script>
 
 </body>
 </html>
